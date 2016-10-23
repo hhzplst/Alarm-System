@@ -1,14 +1,15 @@
 import java.util.Observable;
 import java.util.Observer;
+import java.util.ArrayList;
 
 public class CentralMonitor implements Observer, Runnable {
-  private volitile boolean isRunning = true;
+  private volatile boolean isRunning = true;
   private int numberOfAvailableSensors;
   ArrayList<Sensor> sensorList; 
 
   public CentralMonitor(ArrayList<Sensor> sensors) {
     this.sensorList = sensors;
-    foreach(Sensor sensor : sensorList) {
+    for (Sensor sensor : sensorList) {
       sensor.addObserver(this);
     }
     numberOfAvailableSensors = sensorList.size();
@@ -26,14 +27,15 @@ public class CentralMonitor implements Observer, Runnable {
       checkSensorAvailability();
       try {
         Thread.sleep(1000);
-      } catch (InterruptedException) {
+      } catch (InterruptedException e) {
         System.out.println("Central Monitor thread got interrupted.");
+        Thread.currentThread().interrupt();
       }
     }
   }
 
   private void checkSensorAvailability() {
-    foreach(Sensor sensor : sensorList) {
+    for (Sensor sensor : sensorList) {
       if(sensor.check() == false) {
         numberOfAvailableSensors--;
       }

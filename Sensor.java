@@ -5,14 +5,10 @@ public abstract class Sensor extends Observable implements Runnable {
   protected volatile boolean isBroken;
   protected volatile boolean isRunning = true;
 
-  public Sensor(string type) {
-    if (type.equals("fire")) {
-      return new FireSensor();
-    } else if (item.equals("burglar")) {
-      return new BurglarSensor();
-    } else if (item.equals("earthquake")) {
-      return new EarthquakeSensor();
-    } else return null;
+  public Sensor() {};
+
+  public Sensor(String type) {
+    createSensor(type);
   }
 
   public void run() {
@@ -20,8 +16,9 @@ public abstract class Sensor extends Observable implements Runnable {
       detect();
       try {
         Thread.sleep(100);
-      } catch (InterruptedException) {
+      } catch (InterruptedException e) {
         System.out.println("Sensor thread got interrupted.");
+        Thread.currentThread().interrupt();
       }
     }
   }
@@ -35,6 +32,16 @@ public abstract class Sensor extends Observable implements Runnable {
 
   public void shutdown() {
     isRunning = false;
+  }
+
+  private Sensor createSensor(String type) {
+    if (type.equals("fire")) {
+      return new FireSensor();
+    } else if (type.equals("burglar")) {
+      return new BurglarSensor();
+    } else if (type.equals("earthquake")) {
+      return new EarthquakeSensor();
+    } else return null;
   }
 
   public abstract void detect();
