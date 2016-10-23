@@ -146,11 +146,11 @@ Runnable</panel_attributes>
     <coordinates>
       <x>640</x>
       <y>110</y>
-      <w>150</w>
+      <w>180</w>
       <h>290</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;160.0;270.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -174,7 +174,7 @@ Runnable</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
+      <x>780</x>
       <y>260</y>
       <w>100</w>
       <h>30</h>
@@ -185,7 +185,7 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
+      <x>820</x>
       <y>280</y>
       <w>30</w>
       <h>120</h>
