@@ -4,22 +4,24 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
+      <x>130</x>
       <y>380</y>
       <w>310</w>
-      <h>170</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>/Sensor/
 --
-# isBroken : boolean
-# isRunning : boolean
-# monitorList : ArrayList&lt;CentralMonitor&gt;
+- failureRate : double
+- probability : double
+- isBroken : boolean
+- isRunning : boolean
+- alarm : Alarm
 --
 + Sensor(type : string)
 + run() : void
 + check() : boolean
 + shutdown() : void
-/+ createAlarm() : void/
++ triggerAlarm() : void
 
 </panel_attributes>
     <additional_attributes/>
@@ -27,7 +29,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>200</x>
+      <x>190</x>
       <y>260</y>
       <w>100</w>
       <h>30</h>
@@ -38,7 +40,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
+      <x>230</x>
       <y>280</y>
       <w>30</w>
       <h>120</h>
@@ -49,7 +51,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
+      <x>420</x>
       <y>80</y>
       <w>320</w>
       <h>40</h>
@@ -61,7 +63,7 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
+      <x>250</x>
       <y>110</y>
       <w>290</w>
       <h>290</h>
@@ -72,79 +74,7 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>540</y>
-      <w>80</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>280</x>
-      <y>540</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>370</x>
-      <y>540</y>
-      <w>90</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>20</x>
-      <y>620</y>
-      <w>170</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>FireSensor
---
-+ createAlarm() : void</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>210</x>
-      <y>620</y>
-      <w>160</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>BurglarSensor
---
-+ createAlarm() : void</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>390</x>
-      <y>620</y>
-      <w>170</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>EarthquakeSensor
---
-+ createAlarm() : void</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>640</x>
+      <x>630</x>
       <y>110</y>
       <w>180</w>
       <h>290</h>
@@ -155,26 +85,29 @@ Runnable</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
+      <x>670</x>
       <y>380</y>
-      <w>330</w>
-      <h>140</h>
+      <w>350</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Central Monitor
 --
-- isRunning
+- isRunning : boolean
+- numberOfAvailableSensors : int
+- sensorList : ArrayList&lt;Sensor&gt;
 --
 + CentralMonitor(sensors : ArrayList&lt;Sensor&gt;)
 + run() : void
-+ notify() : void
++ update() : void
 + shutdown() : void
+- checkSensorAvailability() : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>780</x>
+      <x>770</x>
       <y>260</y>
       <w>100</w>
       <h>30</h>
@@ -185,7 +118,7 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>820</x>
+      <x>810</x>
       <y>280</y>
       <w>30</w>
       <h>120</h>
@@ -196,7 +129,7 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
+      <x>430</x>
       <y>490</y>
       <w>260</w>
       <h>30</h>
@@ -207,7 +140,7 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
+      <x>430</x>
       <y>390</y>
       <w>260</w>
       <h>30</h>
@@ -218,7 +151,7 @@ Runnable</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>600</x>
+      <x>590</x>
       <y>370</y>
       <w>90</w>
       <h>30</h>
@@ -230,7 +163,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>460</x>
+      <x>450</x>
       <y>470</y>
       <w>90</w>
       <h>30</h>
@@ -238,5 +171,93 @@ style=wordwrap</panel_attributes>
     <panel_attributes>Subject
 style=wordwrap</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>650</y>
+      <w>330</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+Alarm
+--
+/goOff() : void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>780</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>BurglarAlarm
+--
++ goOff() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>780</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>FireAlarm
+--
++ goOff() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>780</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>EarthquakeAlarm
+--
++ goOff() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>710</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>710</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>710</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;70.0</additional_attributes>
   </element>
 </diagram>

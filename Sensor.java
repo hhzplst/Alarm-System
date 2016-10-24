@@ -1,19 +1,34 @@
 import java.util.Observable;
 
-public abstract class Sensor extends Observable implements Runnable {
-  private double failureRate = 0.01;
-  protected volatile boolean isBroken;
-  protected volatile boolean isRunning = true;
-
-  public Sensor() {};
+public class Sensor extends Observable implements Runnable {
+  private double failureRate = 0.1;
+  private double probability;
+  private Alarm alarm;
+  private volatile boolean isBroken;
+  private volatile boolean isRunning = true;
 
   public Sensor(String type) {
-    createSensor(type);
+    if (type.equals("fire")) {
+      alarm = new FireAlarm();
+      probability = 0.05;
+    } else if (type.equals("burglar")) {
+      alarm = new BurglarAlarm();
+      probability = 0.1;
+    } else if (type.equals("earthquake")) {
+      alarm = new EarthquakeAlarm();
+      probability = 0.01;
+    } else {
+      System.out.println("check input!");
+    }
   }
 
   public void run() {
     while (isRunning) {
-      detect();
+      double x = Math.random();
+      if (x <= probability) {
+        setChanged();
+        notifyObservers();
+      }
       try {
         Thread.sleep(100);
       } catch (InterruptedException e) {
@@ -21,6 +36,10 @@ public abstract class Sensor extends Observable implements Runnable {
         Thread.currentThread().interrupt();
       }
     }
+  }
+
+  public void triggerAlarm() {
+    alarm.goOff();
   }
 
   public boolean check() {
@@ -33,17 +52,5 @@ public abstract class Sensor extends Observable implements Runnable {
   public void shutdown() {
     isRunning = false;
   }
-
-  private Sensor createSensor(String type) {
-    if (type.equals("fire")) {
-      return new FireSensor();
-    } else if (type.equals("burglar")) {
-      return new BurglarSensor();
-    } else if (type.equals("earthquake")) {
-      return new EarthquakeSensor();
-    } else return null;
-  }
-
-  public abstract void detect();
 
 }

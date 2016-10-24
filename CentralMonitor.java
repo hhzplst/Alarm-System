@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CentralMonitor implements Observer, Runnable {
   private volatile boolean isRunning = true;
   private int numberOfAvailableSensors;
-  ArrayList<Sensor> sensorList; 
+  private ArrayList<Sensor> sensorList; 
 
   public CentralMonitor(ArrayList<Sensor> sensors) {
     this.sensorList = sensors;
@@ -17,8 +17,9 @@ public class CentralMonitor implements Observer, Runnable {
 
   public void update(Observable obs, Object arg) {
     if (obs instanceof Sensor) {
-      //prioritize the alarm
-      //set off alarm
+      //TODO: prioritize the alarm
+      Sensor s = (Sensor) obs;
+      s.triggerAlarm();      
     }
   }
 
@@ -26,7 +27,7 @@ public class CentralMonitor implements Observer, Runnable {
     while (isRunning) {
       checkSensorAvailability();
       try {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
       } catch (InterruptedException e) {
         System.out.println("Central Monitor thread got interrupted.");
         Thread.currentThread().interrupt();
@@ -36,11 +37,15 @@ public class CentralMonitor implements Observer, Runnable {
 
   private void checkSensorAvailability() {
     for (Sensor sensor : sensorList) {
-      if(sensor.check() == false) {
+      if(sensor.check() == true) {
+        if (numberOfAvailableSensors == 0) {
+          System.out.println("all sensors down.");
+          System.exit(1);
+        }
         numberOfAvailableSensors--;
       }
     }
-    System.out.printf("{0} of Sensors are Up and Running...", numberOfAvailableSensors);
+    System.out.printf("%d of Sensors are Up and Running...\n", numberOfAvailableSensors);
   }
 
   public void shutdown() {
