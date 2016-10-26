@@ -4,20 +4,19 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>380</y>
+      <x>80</x>
+      <y>310</y>
       <w>310</w>
-      <h>200</h>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>Sensor
+    <panel_attributes>/Sensor/
 --
+# probability : double
+# alarm : Alarm
 - failureRate : double
-- probability : double
 - isBroken : boolean
 - isRunning : boolean
-- alarm : Alarm
 --
-+ Sensor(type : string)
 + run() : void
 + check() : boolean
 + shutdown() : void
@@ -29,8 +28,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
-      <y>260</y>
+      <x>140</x>
+      <y>190</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -40,8 +39,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>230</x>
-      <y>280</y>
+      <x>180</x>
+      <y>210</y>
       <w>30</w>
       <h>120</h>
     </coordinates>
@@ -51,8 +50,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>80</y>
+      <x>370</x>
+      <y>10</y>
       <w>320</w>
       <h>40</h>
     </coordinates>
@@ -63,8 +62,8 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>110</y>
+      <x>200</x>
+      <y>40</y>
       <w>290</w>
       <h>290</h>
     </coordinates>
@@ -74,8 +73,8 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>110</y>
+      <x>580</x>
+      <y>40</y>
       <w>180</w>
       <h>290</h>
     </coordinates>
@@ -85,10 +84,10 @@ Runnable</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>670</x>
-      <y>380</y>
+      <x>620</x>
+      <y>310</y>
       <w>350</w>
-      <h>200</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>Central Monitor
 --
@@ -107,8 +106,8 @@ Runnable</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
-      <y>260</y>
+      <x>720</x>
+      <y>190</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -118,8 +117,8 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
-      <y>280</y>
+      <x>760</x>
+      <y>210</y>
       <w>30</w>
       <h>120</h>
     </coordinates>
@@ -129,8 +128,8 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>490</y>
+      <x>380</x>
+      <y>440</y>
       <w>260</w>
       <h>30</h>
     </coordinates>
@@ -140,8 +139,8 @@ Runnable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>390</y>
+      <x>380</x>
+      <y>360</y>
       <w>260</w>
       <h>30</h>
     </coordinates>
@@ -151,8 +150,8 @@ Runnable</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>590</x>
-      <y>370</y>
+      <x>540</x>
+      <y>330</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -163,8 +162,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>450</x>
-      <y>470</y>
+      <x>400</x>
+      <y>400</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -175,8 +174,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>650</y>
+      <x>540</x>
+      <y>580</y>
       <w>330</w>
       <h>70</h>
     </coordinates>
@@ -190,8 +189,8 @@ Alarm
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>780</y>
+      <x>450</x>
+      <y>710</y>
       <w>140</w>
       <h>50</h>
     </coordinates>
@@ -204,8 +203,8 @@ Alarm
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>780</y>
+      <x>640</x>
+      <y>710</y>
       <w>130</w>
       <h>50</h>
     </coordinates>
@@ -217,8 +216,8 @@ Alarm
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>780</y>
+      <x>810</x>
+      <y>710</y>
       <w>150</w>
       <h>50</h>
     </coordinates>
@@ -230,19 +229,19 @@ Alarm
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>710</y>
-      <w>160</w>
+      <x>510</x>
+      <y>640</y>
+      <w>150</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>130.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>710</y>
+      <x>690</x>
+      <y>640</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -252,12 +251,94 @@ Alarm
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>710</y>
-      <w>170</w>
+      <x>750</x>
+      <y>640</y>
+      <w>130</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>550</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>BurglarSensor
+--
+probability : double
+alarm : Alarm
+--
++ BurglarSensor()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>550</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>FireSensor
+--
+probability : double
+alarm : Alarm
+--
++ FireSensor()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>550</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>EarthquakeSensor
+--
+probability : double
+alarm : Alarm
+--
++ EarthquakeSensor()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>80</x>
+      <y>480</y>
+      <w>80</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>480</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>480</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
 </diagram>

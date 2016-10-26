@@ -11,19 +11,19 @@ public class AlarmSystem {
     ArrayList<Thread> myThreads = new ArrayList<Thread>();
 
     for (i = 0; i < 5; i++) {
-      s = new Sensor("burglar");
+      s = new BurglarSensor();
       mySensors.add(s);
       myThreads.add(new Thread(s));
     }
 
     for (i = 0; i < 5; i++){
-      s = new Sensor("fire");
+      s = new FireSensor();
       mySensors.add(s);
       myThreads.add(new Thread(s));
     }
 
     for (i = 0; i < 5; i++) {
-      s = new Sensor("earthquake");
+      s = new EarthquakeSensor();
       mySensors.add(s);
       myThreads.add(new Thread(s));
     }
