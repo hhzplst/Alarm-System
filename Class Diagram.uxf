@@ -5,9 +5,9 @@
     <id>UMLClass</id>
     <coordinates>
       <x>80</x>
-      <y>340</y>
+      <y>350</y>
       <w>310</w>
-      <h>160</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>/Sensor/
 --
@@ -40,10 +40,10 @@
       <x>180</x>
       <y>220</y>
       <w>30</w>
-      <h>140</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -63,10 +63,10 @@ Runnable</panel_attributes>
       <x>200</x>
       <y>50</y>
       <w>290</w>
-      <h>310</h>
+      <h>320</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>270.0;10.0;10.0;290.0</additional_attributes>
+    <additional_attributes>270.0;10.0;10.0;300.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -265,7 +265,7 @@ Alarm
       <x>10</x>
       <y>560</y>
       <w>140</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>BurglarSensor
 --
@@ -281,7 +281,7 @@ probability : double
       <x>160</x>
       <y>560</y>
       <w>140</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>FireSensor
 --
@@ -296,7 +296,7 @@ probability : double
       <x>310</x>
       <y>560</y>
       <w>160</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>EarthquakeSensor
 --
