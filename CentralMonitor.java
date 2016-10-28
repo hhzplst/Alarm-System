@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class CentralMonitor implements Observer, Runnable {
   private volatile boolean isRunning = true;
   private int numberOfAvailableSensors;
-  private ArrayList<Sensor> sensorList; 
+  private ArrayList<Sensor> sensorList;
+  private Alarm alarm; 
 
   public CentralMonitor(ArrayList<Sensor> sensors) {
     this.sensorList = sensors;
@@ -16,11 +17,15 @@ public class CentralMonitor implements Observer, Runnable {
   }
 
   public void update(Observable obs, Object arg) {
-    if (obs instanceof Sensor) {
-      //TODO: prioritize the alarm
-      Sensor s = (Sensor) obs;
-      s.triggerAlarm();      
+    //TODO: prioritize the alarm
+    if (obs instanceof BurglarSensor) {
+      alarm = new BurglarAlarm();      
+    } else if (obs instanceof FireSensor) {
+      alarm = new FireAlarm();
+    } else if (obs instanceof EarthquakeSensor) {
+      alarm = new EarthquakeAlarm();
     }
+    triggerAlarm();
   }
 
   public void run() {
@@ -33,6 +38,10 @@ public class CentralMonitor implements Observer, Runnable {
         Thread.currentThread().interrupt();
       }
     }
+  }
+
+  public void triggerAlarm() {
+    alarm.goOff();
   }
 
   private void checkSensorAvailability() {

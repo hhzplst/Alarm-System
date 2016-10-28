@@ -3,7 +3,6 @@ import java.util.Observable;
 public abstract class Sensor extends Observable implements Runnable {
   private double failureRate = 0.1;
   protected double probability;
-  protected Alarm alarm;
   private volatile boolean isBroken;
   private volatile boolean isRunning = true;
 
@@ -21,10 +20,6 @@ public abstract class Sensor extends Observable implements Runnable {
         Thread.currentThread().interrupt();
       }
     }
-  }
-
-  public void triggerAlarm() {
-    alarm.goOff();
   }
 
   public boolean check() {
